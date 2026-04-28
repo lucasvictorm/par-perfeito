@@ -6,18 +6,57 @@ generator client {
   provider = "prisma-client"
   output   = "./generated"
 }
-
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  posts Post[]
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String?  // null se for Google
+  image     String?
+  provider  String   // "google" | "credentials"
+
+  profile   Profile?
+  shoes     Shoe[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  onboardingCompleted Boolean @default(false)
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  published Boolean @default(false)
-  author    User?   @relation(fields: [authorId], references: [id])
-  authorId  Int?
+model Profile {
+  id        String @id @default(cuid())
+  userId    String @unique
+
+  user      User   @relation(fields: [userId], references: [id])
+
+  city      String?
+  state     String?
+  shoeSize  Int?
+
+  bio       String?
+}
+
+model Shoe {
+  id        String @id @default(cuid())
+
+  userId    String
+  user      User @relation(fields: [userId], references: [id])
+
+  size      Int
+  side      String // "LEFT" | "RIGHT"
+  type      String? // sneaker, social etc
+  brand     String?
+  imageUrl  String?
+
+  createdAt DateTime @default(now())
+}
+
+model Match {
+  id        String @id @default(cuid())
+
+  shoeAId   String
+  shoeBId   String
+
+  status    String // pending | accepted | rejected
+
+  createdAt DateTime @default(now())
 }
