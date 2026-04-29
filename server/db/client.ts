@@ -6,4 +6,3 @@ const adapter = new PrismaPg({
 });
 
 export const prisma = new PrismaClient({ adapter });
-// Find all users with their posts
