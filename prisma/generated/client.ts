@@ -47,7 +47,17 @@ export { Prisma }
  */
 export type User = Prisma.UserModel
 /**
- * Model Post
+ * Model Profile
  * 
  */
-export type Post = Prisma.PostModel
+export type Profile = Prisma.ProfileModel
+/**
+ * Model Shoe
+ * 
+ */
+export type Shoe = Prisma.ShoeModel
+/**
+ * Model Match
+ * 
+ */
+export type Match = Prisma.MatchModel

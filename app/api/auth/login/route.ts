@@ -1,19 +1,11 @@
+import { login } from "@/server/services/login.service";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   const body = await req.json();
   const { email, senha } = body;
 
-  if (!email || !senha) {
-    return NextResponse.json({ error: "Dados inválidos" }, { status: 400 });
-  }
+  const result = await login(email, senha);
 
-  if (email !== "teste@gmail.com" || senha !== "testesenha") {
-    return NextResponse.json(
-      { error: "Credenciais inválidas" },
-      { status: 401 },
-    );
-  }
-
-  return NextResponse.json({ success: true });
+  return NextResponse.json(result, { status: result.status });
 }

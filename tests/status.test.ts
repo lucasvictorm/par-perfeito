@@ -1,4 +1,4 @@
-import { checkDatabase } from "./status";
+import { checkDatabase } from "../server/services/status";
 
 import { describe, it, expect } from "vitest";
 

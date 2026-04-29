@@ -52,7 +52,9 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   User: 'User',
-  Post: 'Post'
+  Profile: 'Profile',
+  Shoe: 'Shoe',
+  Match: 'Match'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -73,21 +75,54 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 export const UserScalarFieldEnum = {
   id: 'id',
+  name: 'name',
   email: 'email',
-  name: 'name'
+  password: 'password',
+  image: 'image',
+  provider: 'provider',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  onboardingCompleted: 'onboardingCompleted'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const PostScalarFieldEnum = {
+export const ProfileScalarFieldEnum = {
   id: 'id',
-  title: 'title',
-  published: 'published',
-  authorId: 'authorId'
+  userId: 'userId',
+  city: 'city',
+  state: 'state',
+  shoeSize: 'shoeSize',
+  bio: 'bio'
 } as const
 
-export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum]
+export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
+
+
+export const ShoeScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  size: 'size',
+  side: 'side',
+  type: 'type',
+  brand: 'brand',
+  imageUrl: 'imageUrl',
+  createdAt: 'createdAt'
+} as const
+
+export type ShoeScalarFieldEnum = (typeof ShoeScalarFieldEnum)[keyof typeof ShoeScalarFieldEnum]
+
+
+export const MatchScalarFieldEnum = {
+  id: 'id',
+  shoeAId: 'shoeAId',
+  shoeBId: 'shoeBId',
+  status: 'status',
+  createdAt: 'createdAt'
+} as const
+
+export type MatchScalarFieldEnum = (typeof MatchScalarFieldEnum)[keyof typeof MatchScalarFieldEnum]
 
 
 export const SortOrder = {
