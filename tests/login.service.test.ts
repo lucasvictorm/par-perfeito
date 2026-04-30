@@ -54,6 +54,6 @@ describe("login service", () => {
     const result = await login("teste@email.com", "123456");
 
     expect(result.status).toBe(200);
-    expect(result.success).toBe(true);
+    expect(result.user).toBe({});
   });
 });

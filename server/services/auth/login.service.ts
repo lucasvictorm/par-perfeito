@@ -18,5 +18,12 @@ export async function login(email: string, senha: string) {
     return { status: 401, error: "Senha incorreta" };
   }
 
-  return { status: 200, success: true };
+  return {
+    status: 200,
+    user: {
+      id: user.id,
+      email: user.email,
+      name: user.name,
+    },
+  };
 }
