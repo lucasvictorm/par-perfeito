@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import bcrypt from "bcryptjs";
-import { login } from "@/server/services/login.service";
+import { login } from "@/server/services/auth/login.service";
 import { prisma } from "@/server/db/client";
 
 vi.mock("@/server/db/client", () => ({
