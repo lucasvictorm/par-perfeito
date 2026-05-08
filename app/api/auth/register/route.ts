@@ -1,4 +1,4 @@
-import { register } from "@/server/services/auth/register.service";
+import { register } from "@/server/services/auth/auth.service";
 import { NextResponse } from "next/server";
 
 import { z } from "zod";

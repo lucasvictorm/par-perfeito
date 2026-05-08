@@ -1,4 +1,4 @@
-import { login } from "@/server/services/auth/login.service";
+import { login } from "@/server/services/auth/auth.service";
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 
